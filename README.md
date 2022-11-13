@@ -1,63 +1,114 @@
 
 # Technicalisto
 
-## IOS : Add Sub Projects as a Target
+## IOS : How to use enum for easy handle Status -> Enumeration practice (1)
 
 Note : 
        for easy understand firstly read this file once
-       / follow steps in new project from this [ReadMe](https://github.com/AyaBaghdadi/sub_projects_as_a_target) file or from this [Video]()
+       / [ReadMe](https://github.com/AyaBaghdadi/swift_enum_get_status.git) file or from this [Video]()
 
 
-1. Go to Project -> Target Section -> Plus add Target -> Select App -> Add new app
+1. Create Your Empty Swift File 
 
-![screen](img2.png)
-
-2. Add Your sub project Files to your New Sub Target
-
-3. Clean & Build for certain No issues
-
-4. Check files in [ Sub App ] you want to use in [ Main App ] in 2 Target 
-
-![screen](img1.png)
-
-```
-Note : Must 2 Target have no the same name files if you will use it
-```
-
-5. Call Files inside [ Main App -> Technicalisto_Project ] like navigate to SubVC from ViewControllrt like this
-
-```
-let storyboard = UIStoryboard(name: "Main_Sub", bundle: nil)
-
-let VC = storyboard.instantiateViewController(withIdentifier: "SubVC") as? SubVC
-
-VC?.modalPresentationStyle = .fullScreen
-        
-self.present(VC!, animated: true, completion: nil)
-        
-```
-
-6. If You want to Back to [ Main App ] you can dismiss like this 
-
-```
-self.dismiss(animated: true, completion: nil)
+2. Add Enum with your Cases
 
 ```
 
-7. If You want to navigate to [ Main App ] without dismiss ,,, 
-You Must Check this file to use in [ Sub App ] & Add Code Navigate
+enum MessageStatus {
+    
+    case Text
+    
+    case Image
 
-![screen](img1.png)
+}
 
 ```
-let storyboard = UIStoryboard(name: "Main", bundle: nil)
 
-let VC = storyboard.instantiateViewController(withIdentifier: "ViewController") as? ViewController
+3. Add Method Take (your enum) & return (your need Int, String, ....)
 
-VC?.modalPresentationStyle = .fullScreen
-                
-self.present(VC!, animated: true, completion: nil)
-        
+```
+
+func getMessageStatus(value:MessageStatus) -> Int
+
+{
+
+}
+
+```
+
+4. In Your Method Add switch for your took enum & Add All Cases & Add return like type returned in Method Like this : 
+
+```
+
+func getMessageStatus(value:MessageStatus) -> Int
+
+{
+    switch value {
+    case .Text:
+        return 201
+    case .Image:
+        return 202
+    default:
+        return 0
+    }
+}
+
+```
+
+5. Call your Method like this : Send your value you need to get 
+
+```
+
+getMessageStatus(value: .Text)
+
+```
+
+6. You Can Create the Same Method with Another Return DataType
+
+6.1 Return Int
+
+```
+
+func getAppStatus(value:AppStatus) -> Int
+{
+    switch value {
+    case .Available:
+        return 1
+    case .UnderProcessing:
+        return 2
+    case .UnAvailableNow:
+        return 3
+    case .Downloading:
+        return 4
+
+    default:
+        return 0
+    }
+}
+
+```
+
+6.2 Return String
+
+```
+
+func getAppStatus(value:AppStatus) -> String
+{
+    switch value {
+    case .Available:
+        return " App Available Now "
+    case .UnderProcessing:
+        return " App UnderProcessing Now "
+    case .UnAvailableNow:
+        return " App UnAvailableNow Now "
+    case .Downloading:
+        return " App Downloading Now "
+
+    default:
+        return " "
+    }
+}
+
 ```
 
 ### Thanks
