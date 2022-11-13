@@ -4,8 +4,7 @@
 ## IOS : How to use enum for easy handle Status -> Enumeration practice (1)
 
 Note : 
-       for easy understand firstly read this file once
-       / [ReadMe](https://github.com/AyaBaghdadi/swift_enum_get_status.git) file or from this [Video]()
+       for easy understand firstly read this file once [ReadMe](https://github.com/AyaBaghdadi/swift_enum_get_status.git) file or from this [Video]()
 
 
 1. Create Your Empty Swift File 
@@ -28,11 +27,7 @@ enum MessageStatus {
 
 ```
 
-func getMessageStatus(value:MessageStatus) -> Int
-
-{
-
-}
+func getMessageStatus(value:MessageStatus) -> Int { // TODO }
 
 ```
 
